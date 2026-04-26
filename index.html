@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:;">
     <title>StudyGuide Palestine PRO 2026</title>
     <style>
         :root {
@@ -29,8 +31,8 @@
             width: 90%; max-width: 350px; cursor: pointer; color: #fff; box-shadow: 0 6px 15px rgba(0,0,0,0.1); transition: transform 0.2s; 
         }
         .platform:hover { transform: scale(1.03); }
-        .platform img { width: 45px; height: 45px; object-fit: contain; margin-left: 20px; background: white; border-radius: 8px; padding: 2px; }
-        [dir="ltr"] .platform img { margin-left: 0; margin-right: 20px; }
+        .platform svg { width: 45px; height: 45px; object-fit: contain; margin-left: 20px; background: white; border-radius: 8px; padding: 2px; }
+        [dir="ltr"] .platform svg { margin-left: 0; margin-right: 20px; }
         .ischool { background: linear-gradient(45deg,#2a9d8f,#52b788); }
         .teams { background: linear-gradient(45deg,#4c5cc4,#5b5fc7); }
         .iphone { background: linear-gradient(45deg,#6d28d9,#a855f7); }
@@ -38,7 +40,7 @@
         .info-box { background: var(--info-box); border-right: 5px solid var(--info-border); padding: 15px; margin: 15px auto; width: 95%; max-width: 600px; border-radius: 10px; color: var(--text-color); }
         [dir="ltr"] .info-box { border-right: none; border-left: 5px solid var(--info-border); }
         
-        .alert-text { color: #e63946; font-weight: bold; text-align: center; margin: 10px 0; display: block; background: #fff3f3; padding: 8px; border-radius: 5px; border: 1px dashed #e63946; font-size: 14px; }
+        .alert-text { color: #e63946; font-weight: bold; text-align: center; margin: 10px 0; display: block; background: #fff3f3; padding: 8px; border-radius: 5px; border: 1px dashed #e63946; font-size: 13px; }
         .support-text { color: #0077b6; font-weight: bold; text-align: center; margin: 10px 0; display: block; background: #e7f3f9; padding: 10px; border-radius: 8px; font-size: 14px; border: 1px solid #0077b6; text-decoration: none; }
 
         .links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 15px; margin-bottom: 15px; }
@@ -56,7 +58,9 @@
         button { cursor: pointer; border: none; border-radius: 6px; font-weight: bold; transition: 0.3s; }
         .copyBtn { background: #457b9d; color: white; padding: 10px; margin-top: 10px; width: 100%; }
 
-        .whatsapp-btn { position: fixed; bottom: 20px; left: 20px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; }
+        .whatsapp-btn { position: fixed; bottom: 20px; left: 20px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); transition: 0.3s; text-decoration: none; }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        [dir="ltr"] .whatsapp-btn { left: auto; right: 20px; }
         
         .result-container { display: none; background: rgba(0,0,0,0.05); padding: 15px; border-radius: 8px; margin-top: 15px; border: 1px solid #ddd; }
         .id-status { font-size: 13px; margin-top: 5px; display: block; font-weight: bold; }
@@ -80,17 +84,17 @@
     </div>
 
     <div class="platform ischool" onclick="showISchool()">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Eschool_logo.png" alt="iSchool">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
         <span id="labelIschool">منصة iSchool Palestine</span>
     </div>
     
     <div class="platform teams" onclick="showTeams()">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_Office_Teams_%282019%E2%80%93present%29.svg" alt="Teams">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M9 2C7.9 2 7 2.9 7 4v16c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H9m8 0c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg>
         <span id="labelTeams">Microsoft Teams 2026</span>
     </div>
     
     <div class="platform iphone" onclick="showIphone()">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="iPhone">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M17 2H7c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H7V4h10v16zm-5-8l-2 2V9h4v3l-2 2z"/></svg>
         <span id="labelIphone">Microsoft Teams (iPhone)</span>
     </div>
 
@@ -104,7 +108,7 @@
 </div>
 
 <a href="https://wa.me/972598782836" class="whatsapp-btn" target="_blank">
-    <svg viewBox="0 0 24 24" width="35" height="35" fill="white"><path d="M12.031 6.172c-2.203 0-4.391.547-6.328 1.594l-.453.25L3 7.375l.656 2.312-.266.422C2.328 11.797 1.813 13.562 1.813 15.422c0 5.625 4.594 10.188 10.219 10.188 2.188 0 4.312-.703 6.078-1.984l.438-.312 2.375.625-.625-2.312.312-.453c1.266-1.844 1.938-4.016 1.938-6.25 0-5.625-4.594-10.188-10.219-10.188zm5.953 14.5c-.25.719-1.25 1.313-1.719 1.406-.469.094-1.078.125-1.734-.094-.422-.125-1.016-.312-1.734-.625-3.047-1.313-5.047-4.391-5.188-4.594-.156-.203-1.25-1.656-1.25-3.156 0-1.5.781-2.234 1.062-2.531.281-.313.625-.391.828-.391.219 0 .438 0 .625.016.203.016.469-.078.734.563.266.656.922 2.25 1 2.422.078.172.125.375.016.594-.109.219-.172.359-.344.563-.172.188-.359.422-.516.563-.172.172-.344.359-.156.688.188.313.828 1.359 1.781 2.203.125.109.25.219.375.313.906.75 1.438.938 1.734 1.078.297.141.469.125.641-.078.172-.203.734-.859.938-1.156.203-.313.406-.25.688-.156.281.094 1.781.844 2.094 1 .313.156.516.234.594.359.078.141.078.797-.172 1.516z"></path></svg>
+    <svg viewBox="0 0 24 24" width="35" height="35" fill="white"><path d="M12.031 6.172c-2.203 0-4.391.547-6.328 1.594l-.453.25L3 7.375l.656 2.312-.266.422C2.328 11.797 1.813 13.562 1.813 15.422c0 4.644 3.888 8.531 8.531 8.531.703 0 1.394-.062 2.078-.191l.477-.063.44.277c1.953 1.219 4.609 1.953 7.266 1.953 1.078 0 2.078-.125 3.047-.344l.453-.078.469.281c.094.062.219.125.406.125.422 0 .75-.313.75-.719V2.719c0-.406-.281-.75-.688-.75-.094 0-.203.016-.313.047l-.469.125-.422-.078C19.719 1.219 15.969 0 12 0c-.094 0-.187 0-.281 0zm10.148 5.134l.512 1.846-.438.359c-.88.703-2.059 1.306-3.297 1.703-.469.172-.922.344-1.406.5.031.453.078.938.078 1.438 0 .953-.078 1.938-.219 2.906-.141.969-.375 1.969-.594 2.766-.266.906-.563 1.656-.938 2.203l-.266.391-.375-.063c-1.016-.187-2.031-.516-2.828-1.031l-.375-.25-.438.078c-.906.172-1.875.266-2.859.266-.922 0-1.844-.078-2.75-.234l-.438-.063-.328.203c-.828.516-1.844.844-2.859 1.031l-.375.062-.281-.391c-.375-.547-.672-1.297-.938-2.203-.219-.797-.453-1.797-.594-2.766-.141-.969-.219-1.953-.219-2.906 0-.5.047-.984.078-1.438-.484-.156-.937-.328-1.406-.5-1.238-.397-2.418-1-.297-1.703l.512-1.846.469.125c2.043.469 4.164.766 6.281.766 1.078 0 2.156-.078 3.234-.234 1.078-.156 2.141-.391 3.188-.703l.469-.125z"/></svg>
 </a>
 
 <script>
@@ -244,7 +248,7 @@ function showISchool() {
         
         <div class="links-grid">
             <a href="https://www.eschool.edu.ps" target="_blank" class="btn-link">${t.officialSite}</a>
-            <a href="https://eschoolps.ar.uptodown.com/android#" target="_blank" class="btn-link">${t.androidApp}</a>
+            <a href="https://eschoolps.ar.uptodown.com/android" target="_blank" class="btn-link">${t.androidApp}</a>
             <a href="https://moe.edu.ps/m/3784" target="_blank" class="btn-link" style="grid-column: span 2; background:#2a9d8f;">${t.pdfGuide}</a>
         </div>
         
